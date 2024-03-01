@@ -50,7 +50,12 @@ export function Navbar() {
 
   return (
     <header className={classes.header}>
-      <Container size="md" className={classes.inner} ref={clickOutsideRef}>
+      <Container
+        size="md"
+        id="Home"
+        className={classes.inner}
+        ref={clickOutsideRef}
+      >
         <img src={logo} height={30} width={30} />
         <Group gap={5} visibleFrom="xs">
           {NavItems}
