@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useDisclosure } from "@mantine/hooks";
+import { useClickOutside } from "@mantine/hooks";
 import { Container, Group, Burger, Transition, Paper } from "@mantine/core";
 import classes from "./navbar.module.css";
 import logo from "../../images/Logo.svg";
@@ -14,9 +14,25 @@ const Links = [
 
 export function Navbar() {
   const [active, setActive] = useState(Links[0].link);
-  const [opened, { toggle }] = useDisclosure(false);
+  const [opened, setOpened] = useState(false);
+  const clickOutsideRef = useClickOutside(() => setOpened(false));
 
   const NavItems = Links.map((link) => (
+    <a
+      key={link.label}
+      href={link.link}
+      className={classes.link}
+      data-active={active === link.link || undefined}
+      onClick={(e) => {
+        e.preventDefault();
+        setActive(link.link);
+      }}
+    >
+      {link.label}
+    </a>
+  ));
+
+  const MenuItems = Links.map((link) => (
     <a
       key={link.label}
       href={link.link}
@@ -25,6 +41,7 @@ export function Navbar() {
       onClick={(event) => {
         event.preventDefault();
         setActive(link.link);
+        setOpened(!opened);
       }}
     >
       {link.label}
@@ -33,23 +50,30 @@ export function Navbar() {
 
   return (
     <header className={classes.header}>
-      <Container size="md" className={classes.inner}>
+      <Container size="md" className={classes.inner} ref={clickOutsideRef}>
         <img src={logo} height={30} width={30} />
         <Group gap={5} visibleFrom="xs">
           {NavItems}
         </Group>
-        <Burger opened={opened} onClick={toggle} hiddenFrom="xs" size="sm" />
+        <Burger
+          opened={opened}
+          onClick={() => {
+            setOpened(!opened);
+          }}
+          hiddenFrom="xs"
+          size="sm"
+        />
       </Container>
 
       <Transition
         mounted={opened}
         transition="slide-left"
-        duration={300}
+        duration={200}
         timingFunction="ease"
       >
         {(styles) => (
           <Paper className={classes.linksContainer} style={styles}>
-            <Group gap={5}>{NavItems}</Group>
+            <Group gap={5}>{MenuItems}</Group>
           </Paper>
         )}
       </Transition>
