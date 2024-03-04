@@ -1,0 +1,10 @@
+#Contact {
+  padding-top: calc(2.5rem * var(--mantine-scale));
+  max-width: calc(38.75rem * var(--mantine-scale));
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.outer {
+  padding: calc(0.75rem * var(--mantine-scale));
+}
