@@ -46,8 +46,22 @@ export function Hero() {
           </List>
 
           <Group mt={30}>
-            <Button radius="md" size="md" className={classes.control}>
-              Github
+            <Button
+              radius="md"
+              size="md"
+              color="#1098AD"
+              className={classes.control}
+            >
+              <a
+                href="https://github.com/FouL06"
+                target="_blank"
+                style={{
+                  color: "var(--mantine-color-white",
+                  textDecoration: "none",
+                }}
+              >
+                Github
+              </a>
             </Button>
           </Group>
         </div>
