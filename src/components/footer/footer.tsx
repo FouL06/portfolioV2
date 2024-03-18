@@ -11,12 +11,22 @@ const Links = [
 ];
 
 export function Footer() {
+  const handleSmoothScroll = (link) => {
+    const element = document.querySelector(link);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   const FooterItems = Links.map((link) => (
     <Anchor<"a">
       c="dimmed"
       key={link.label}
       href={link.link}
-      onClick={(e) => e.preventDefault()}
+      onClick={(e) => {
+        e.preventDefault();
+        handleSmoothScroll(link.link);
+      }}
       size="md"
     >
       {link.label}

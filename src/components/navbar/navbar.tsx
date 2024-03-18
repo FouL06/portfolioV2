@@ -17,6 +17,15 @@ export function Navbar() {
   const [opened, setOpened] = useState(false);
   const clickOutsideRef = useClickOutside(() => setOpened(false));
 
+  const handleSmoothScroll = (link) => {
+    const element = document.querySelector(link);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+      setActive(link);
+      setOpened(false);
+    }
+  };
+
   const NavItems = Links.map((link) => (
     <a
       key={link.label}
@@ -25,7 +34,7 @@ export function Navbar() {
       data-active={active === link.link || undefined}
       onClick={(e) => {
         e.preventDefault();
-        setActive(link.link);
+        handleSmoothScroll(link.link);
       }}
     >
       {link.label}
@@ -40,8 +49,7 @@ export function Navbar() {
       data-active={active === link.link || undefined}
       onClick={(event) => {
         event.preventDefault();
-        setActive(link.link);
-        setOpened(!opened);
+        handleSmoothScroll(link.link);
       }}
     >
       {link.label}

@@ -32,7 +32,7 @@ function Card({ image, title, link, category }: CardProps) {
     <Paper
       shadow="md"
       p="xl"
-      radius="md"
+      radius="lg"
       style={{
         backgroundImage: `url(${image})`,
         boxShadow: "inset 0px 0px 50px 20px rgba(0,0,0,0.6)",
@@ -78,8 +78,8 @@ const data = [
   },
   {
     image: TankWars,
-    title: "TankWars",
-    link: "https://mypettag-5970e.web.app/login",
+    title: "Toy Tanks",
+    link: "https://github.com/FouL06/Toy-Tanks",
     category: "Desktop Application",
   },
   {
