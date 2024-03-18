@@ -9,7 +9,7 @@ const Links = [
   { link: "#About", label: "About" },
   { link: "#Projects", label: "Projects" },
   { link: "#Experience", label: "Experience" },
-  { link: "#Contact", label: "Contact" },
+  // { link: "#Contact", label: "Contact" },
 ];
 
 export function Navbar() {
