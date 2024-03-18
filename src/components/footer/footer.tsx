@@ -11,7 +11,7 @@ const Links = [
 ];
 
 export function Footer() {
-  const handleSmoothScroll = (link) => {
+  const handleSmoothScroll = (link: string) => {
     const element = document.querySelector(link);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });

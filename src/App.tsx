@@ -5,7 +5,6 @@ import { MantineProvider } from "@mantine/core";
 import { Navbar } from "./components/navbar/navbar";
 import { Hero } from "./components/hero/hero";
 import { Footer } from "./components/footer/footer";
-import { ContactForm } from "./components/contact/contact";
 import { Projects } from "./components/projects/projects";
 import { Experience } from "./components/experience/experience";
 

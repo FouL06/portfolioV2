@@ -17,7 +17,7 @@ export function Navbar() {
   const [opened, setOpened] = useState(false);
   const clickOutsideRef = useClickOutside(() => setOpened(false));
 
-  const handleSmoothScroll = (link) => {
+  const handleSmoothScroll = (link: string) => {
     const element = document.querySelector(link);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
